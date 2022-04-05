@@ -1,11 +1,9 @@
 package Meal;
 
-import java.util.Scanner;
-
 public class McNuggetsMeal extends MealBase {
 
     public McNuggetsMeal(String mealName) {
-        this.mealName =mealName;
+        this.mealName = mealName;
     }
 
     private int orderNuggets(int pieces) {

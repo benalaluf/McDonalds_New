@@ -1,7 +1,5 @@
 package Meal;
 
-import Meal.Meal;
-
 import java.util.Objects;
 import java.util.Scanner;
 
