@@ -9,27 +9,27 @@ frc/java/jar/sf2-frc.jar
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff
-../../../IdeaProjects/yeeshy/src/sdf/.idea/**/workspace.xml
-../../../IdeaProjects/yeeshy/src/sdf/.idea/**/tasks.xml
-../../../IdeaProjects/yeeshy/src/sdf/.idea/**/usage.statistics.xml
-../../../IdeaProjects/yeeshy/src/sdf/.idea/**/dictionaries
-../../../IdeaProjects/yeeshy/src/sdf/.idea/**/shelf
+#.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
 
 # Generated files
-../../../IdeaProjects/yeeshy/src/sdf/.idea/**/contentModel.xml
+.idea/**/contentModel.xml
 
 # Sensitive or high-churn files
-../../../IdeaProjects/yeeshy/src/sdf/.idea/**/dataSources/
-../../../IdeaProjects/yeeshy/src/sdf/.idea/**/dataSources.ids
-../../../IdeaProjects/yeeshy/src/sdf/.idea/**/dataSources.local.xml
-../../../IdeaProjects/yeeshy/src/sdf/.idea/**/sqlDataSources.xml
-../../../IdeaProjects/yeeshy/src/sdf/.idea/**/dynamic.xml
-../../../IdeaProjects/yeeshy/src/sdf/.idea/**/uiDesigner.xml
-../../../IdeaProjects/yeeshy/src/sdf/.idea/**/dbnavigator.xml
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/dbnavigator.xml
 
 # Gradle
-../../../IdeaProjects/yeeshy/src/sdf/.idea/**/gradle.xml
-../../../IdeaProjects/yeeshy/src/sdf/.idea/**/libraries
+.idea/**/gradle.xml
+.idea/**/libraries
 
 # Gradle and Maven with auto-import
 # When using Gradle or Maven with auto-import, you should exclude module files,
@@ -43,7 +43,7 @@ frc/java/jar/sf2-frc.jar
 cmake-build-*/
 
 # Mongo Explorer plugin
-../../../IdeaProjects/yeeshy/src/sdf/.idea/**/mongoSettings.xml
+.idea/**/mongoSettings.xml
 
 # File-based project format
 *.iws
@@ -58,7 +58,7 @@ out/
 atlassian-ide-plugin.xml
 
 # Cursive Clojure plugin
-../../../IdeaProjects/yeeshy/src/sdf/.idea/replstate.xml
+.idea/replstate.xml
 
 # Crashlytics plugin (for Android Studio and IntelliJ)
 com_crashlytics_export_strings.xml
@@ -67,20 +67,20 @@ crashlytics-build.properties
 fabric.properties
 
 # Editor-based Rest Client
-../../../IdeaProjects/yeeshy/src/sdf/.idea/httpRequests
+.idea/httpRequests
 
 # Android studio 3.1+ serialized cache file
-../../../IdeaProjects/yeeshy/src/sdf/.idea/caches/build_file_checksums.ser
+.idea/caches/build_file_checksums.ser
 
 ### Intellij+all Patch ###
 # Ignores the whole .idea folder and all .iml files
 # See https://github.com/joeblau/gitignore.io/issues/186 and https://github.com/joeblau/gitignore.io/issues/360
 
-../../../IdeaProjects/yeeshy/src/sdf/.idea/
+#.idea/
 
 # Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-249601023
 
-../../../IdeaProjects/yeeshy/src/sdf/.idea/misc.xml
+.idea/misc.xml
 *.ipr
 
 # vscode
