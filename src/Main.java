@@ -15,7 +15,7 @@ public class Main {
         SelfServicesMechanic selfServicesMechanic = new SelfServicesMechanic();
 
         //TODO ask for input of these parameters
-        Dish dish = new McNuggets(McNuggetsType.REGULAR,10);
+        Dish dish = new McNuggets(McNuggetsType.REGULAR, 10);
         MealBase meal = new MealBase(dish, DrinkType.SPRITE, ChipsType.POTATO, MealSizeType.BIG);
         Dessert dessert = new McFlurry(McFlurryType.OREAO);
 

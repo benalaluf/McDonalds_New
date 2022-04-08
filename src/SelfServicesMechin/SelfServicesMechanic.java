@@ -40,7 +40,7 @@ public class SelfServicesMechanic {
 
     }
 
-    public void order(Dessert dessert){
+    public void order(Dessert dessert) {
         setTotalPrice(dessert.getPrice());
         askClientName();
         setOrderNumber();
@@ -54,7 +54,7 @@ public class SelfServicesMechanic {
         System.out.println("---------------------------------");
         System.out.println("client name - " + clientName);
         System.out.println("time of deal - " + currentDateAndTime);
-        System.out.println("THE TOTAL PRICE IS " + totalPrice +"$");
+        System.out.println("THE TOTAL PRICE IS " + totalPrice + "$");
         System.out.println("---------------------------------");
 
     }

@@ -1,5 +1,7 @@
 package Desserts.SunDae;
 
-public class SunDae {
+import Desserts.Dessert;
+
+public class SunDae extends Dessert {
     //TODO
 }
