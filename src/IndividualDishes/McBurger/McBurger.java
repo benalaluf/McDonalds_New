@@ -4,7 +4,12 @@ import IndividualDishes.Dish;
 
 public class McBurger extends Dish {
 
-    McBurgerType mcBurgerType;
+    private final McBurgerType mcBurgerType;
+
+    private final double bigMacPrice = 5;
+    private final double cheeseBurgerPrice = 7;
+    private final double doubleBigMacPrice = 10;
+    private double price;
 
     public McBurger(McBurgerType mcBurgerType) {
         this.mcBurgerType = mcBurgerType;
@@ -14,7 +19,18 @@ public class McBurger extends Dish {
         return mcBurgerType;
     }
 
-    private void setMcBurgerType(McBurgerType mcBurgerType) {
-        this.mcBurgerType = mcBurgerType;
+    public void setPrice() {
+        switch (mcBurgerType){
+            default -> price = bigMacPrice;
+            case CHEESE_BURGER -> price = cheeseBurgerPrice;
+            case DOUBLE_BIG_MAC -> price =doubleBigMacPrice;
+
+        }
+    }
+
+    @Override
+    public double getPrice() {
+        setPrice();
+        return price;
     }
 }
