@@ -7,9 +7,15 @@ import Meal.MealType.MealSizeType;
 interface Meal {
 
 
-    ChipsType setChips(ChipsType chipsType);
+    DrinkType getDrinkType();
 
-    DrinkType setDrink(DrinkType drinkType);
+    ChipsType getChipsType();
 
-    MealSizeType setMealSize(MealSizeType sizeType);
+    MealSizeType getMealSizeType();
+
+    void setDrink(DrinkType drinkType);
+
+    void setChips(ChipsType chipsType);
+
+    void setMealSize(MealSizeType sizeType);
 }
