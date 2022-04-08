@@ -1,146 +1,158 @@
 package Meal;
 
-import java.util.Objects;
-import java.util.Scanner;
+import IndividualDishes.Dish;
+import Meal.MealType.ChipsType;
+import Meal.MealType.DrinkType;
+import Meal.MealType.MealSizeType;
 
-public abstract class MealBase implements Meal {
+public class MealBase implements Meal {
 
-    protected Scanner scn = new Scanner(System.in);
+    private final Dish dish;
 
-    private String drink;
-    private String crisps;
-    private String mealSize;
+    private DrinkType drink;
+    private ChipsType chips;
+    private MealSizeType mealSize;
+    private double price;
 
-    public String mealName;
-    protected double price;
-    private double totalPriceMealSize = 0;
-    private double totalPrice = 0;
+    //drinks price
+    private final double colaPrice = 3;
+    private final double spritePrice = 3;
+    private final double fantaPrice = 3;
+    private final double leanPrice = 5;
+    private double drinkPrice;
 
-    public MealBase() {
-        this.mealName = mealName;
-    }
+    //chips price
+    private final double frenchChipsPrice = 4;
+    private final double potatoChipsPrice = 5;
+    private double chipsPrice;
 
-    boolean isValid(String valid) {
-        return Objects.equals(valid, "invalid");
-    }
+    //meal size multiply value
+    private final double regularMealMultiply = 1;
+    private final double bigMealMultiply = 1.3;
+    private final double enormousMealMultiply = 1.6;
+    private double mealSizeMultiply;
 
-    boolean isValid(int valid) {
-        return valid == -1;
-    }
 
-    private String getMealName() {
-        return mealName;
-    }
-
-    public String setDrink(String drink) {
-        switch (drink) {
-            case "coke" -> {
-                totalPriceMealSize += 3;
-                return "coke";
-            }
-            case "sprite" -> {
-                totalPriceMealSize += 3;
-                return "sprite";
-            }
-            case "lean" -> {
-                totalPriceMealSize += 69;
-                return "lean";
-            }
-            default -> {
-                System.out.println("you entered invalid drink try coke/sprite/lean");
-                return "invalid";
-            }
-        }
-    }
-
-    public String setCrisps(String crisps) {
-        switch (crisps) {
-            case "french" -> {
-                totalPriceMealSize += 2;
-                return "French";
-            }
-            case "potato" -> {
-                totalPriceMealSize += 5;
-                return "Potato";
-            }
-            default -> {
-                System.out.println("you entered invalid crisps try french/potato");
-                return "invalid";
-            }
-        }
-    }
-
-    public String setMealSize(String size) {
-        switch (size.charAt(0)) {
-            case 'r' -> {
-                return "regular";
-            }
-            case 'b' -> {
-                return "big";
-            }
-            case 'e' -> {
-                return "enormous";
-            }
-            default -> {
-                System.out.println("you entered invalid meal size try regular/big/enormous");
-                return "invalid";
-            }
-        }
-
-    }
-
-    private void orderCrisps() {
-        do {
-            System.out.println("pls chose crisps - ");
-            crisps = setCrisps(scn.next());
-        } while (isValid(crisps));
-    }
-
-    private void orderDrink() {
-        do {
-            System.out.println("pls chose drink - ");
-            drink = setDrink(scn.next());
-        } while (isValid(drink));
-    }
-
-    private void chooseMealSize() {
-        do {
-            System.out.println("pls chose meal size - ");
-            mealSize = setMealSize(scn.next());
-        } while (isValid(mealSize));
+    public MealBase(Dish dish, DrinkType drink, ChipsType chips, MealSizeType mealSize) {
+        this.dish = dish;
+        this.drink = drink;
+        this.chips = chips;
+        this.mealSize = mealSize;
     }
 
     @Override
-    public void orderMeal() {
-        System.out.println(getMealName());
-        System.out.println("--------------------------");
-        this.orderType();
-        orderCrisps();
-        orderDrink();
-        chooseMealSize();
+    public DrinkType getDrinkType() {
+        return drink;
     }
 
-    private double setTotalPriceMealSize() {
-        return switch (mealSize) {
-            case "regular" -> 1 * totalPriceMealSize;
-            case "big" -> 1.5 * totalPriceMealSize;
-            case "enormous" -> 1.8 * totalPriceMealSize;
-            default -> -1 * totalPriceMealSize;
-        };
+    @Override
+    public ChipsType getChipsType() {
+        return chips;
     }
 
-    public void addToTotalPrice() {
-        totalPrice += price;
+    @Override
+    public MealSizeType getMealSizeType() {
+        return mealSize;
     }
 
-    private double getTotalPrice() {
-        return totalPrice + setTotalPriceMealSize();
+    public void setDrinkPrice() {
+        switch (drink){
+            default -> drinkPrice = colaPrice;
+            case SPRITE -> drinkPrice = spritePrice;
+            case FANTA -> drinkPrice = fantaPrice;
+            case LEAN -> drinkPrice = leanPrice;
+        }
     }
 
-    public void recipe() {
-        System.out.println("------------------------");
-        System.out.println("the total price is - $" + getTotalPrice());
-        System.out.println("------------------------");
+    public void setChipsPrice() {
+        switch (chips){
+            default -> chipsPrice = frenchChipsPrice;
+            case POTATO -> chipsPrice = potatoChipsPrice;
+        }
+    }
 
+    public void setMealSizeMultiply() {
+        switch (mealSize){
+            default -> mealSizeMultiply = regularMealMultiply;
+            case BIG -> mealSizeMultiply = bigMealMultiply;
+            case ENORMOUS -> mealSizeMultiply = enormousMealMultiply;
+        }
+    }
+
+    public void setPrice() {
+        setDrinkPrice();
+        setChipsPrice();
+        setMealSizeMultiply();
+        price = (drinkPrice + chipsPrice)*mealSizeMultiply + dish.getPrice() ;
+    }
+
+    public double getPrice() {
+        setPrice();
+        return price;
+    }
+
+    /**
+     * set basic-meal things
+     */
+    public void setDrink(DrinkType drinkType) {
+        switch (drinkType) {
+            case COLA -> {
+                drink = DrinkType.COLA;
+            }
+            case SPRITE -> {
+                drink = DrinkType.SPRITE;
+            }
+            case FANTA -> {
+                drink = DrinkType.FANTA;
+            }
+            default -> {
+                drink = DrinkType.LEAN;
+            }
+        }
+    }
+
+    public void setChips(ChipsType chipsType) {
+        switch (chipsType) {
+            case POTATO -> {
+                chips = ChipsType.POTATO;
+            }
+            default -> {
+                chips = ChipsType.FRENCH;
+            }
+        }
+    }
+
+    public void setMealSize(MealSizeType mealSizeType) {
+        switch (mealSizeType) {
+            case BIG -> {
+                mealSize = MealSizeType.BIG;
+            }
+            case ENORMOUS -> {
+                mealSize = MealSizeType.ENORMOUS;
+            }
+            default -> {
+                mealSize = MealSizeType.REGULAR;
+            }
+        }
+
+    }
+
+
+    /**
+     * meal ordering basic ignore
+     */
+    private void orderCrisps() {
+        System.out.println("pls chose crisps - ");
+        //    setChips();
+    }
+
+    private void orderDrink() {
+        System.out.println("pls chose drink - ");
+        //    setDrink();
+    }
+
+    private void chooseMealSize() {
+        System.out.println("pls chose meal size - ");
+        //   setMealSize();
     }
 }

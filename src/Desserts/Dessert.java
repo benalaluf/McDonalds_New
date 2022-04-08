@@ -1,8 +1,9 @@
-package IndividualDishes;
+package Desserts;
 
-public abstract class Dish {
+public abstract class Dessert {
 
     public double getPrice(){
         return 0;
     }
+
 }
