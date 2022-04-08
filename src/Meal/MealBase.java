@@ -5,8 +5,6 @@ import Meal.MealType.ChipsType;
 import Meal.MealType.DrinkType;
 import Meal.MealType.MealSizeType;
 
-import java.util.Scanner;
-
 public class MealBase implements Meal {
 
     //protected Scanner scn = new Scanner(System.in);
@@ -21,63 +19,88 @@ public class MealBase implements Meal {
         this.mealSize = mealSize;
     }
 
-    /** set basic-meal things */
-    public DrinkType setDrink(DrinkType drinkType) {
-        switch (drink) {
+    @Override
+    public DrinkType getDrinkType() {
+        return drink;
+    }
+
+    @Override
+    public ChipsType getChipsType() {
+        return chips;
+    }
+
+    @Override
+    public MealSizeType getMealSizeType() {
+        return mealSize;
+    }
+
+    /**
+     * set basic-meal things
+     */
+    public void setDrink(DrinkType drinkType) {
+        switch (drinkType) {
             case COLA -> {
-                return DrinkType.COLA;
+                drink = DrinkType.COLA;
             }
             case SPRITE -> {
-                return DrinkType.SPRITE;
+                drink = DrinkType.SPRITE;
             }
             case FANTA -> {
-                return DrinkType.FANTA;
+                drink = DrinkType.FANTA;
             }
             default -> {
-                return DrinkType.LEAN;
+                drink = DrinkType.LEAN;
             }
         }
     }
 
-    public ChipsType setChips(ChipsType chipsType) {
-        switch (chips) {
+    public void setChips(ChipsType chipsType) {
+        switch (chipsType) {
             case POTATO -> {
-                return ChipsType.POTATO;
+                chips = ChipsType.POTATO;
             }
             default -> {
-                return ChipsType.FRENCH;
+                chips = ChipsType.FRENCH;
             }
         }
     }
 
-    public MealSizeType setMealSize(MealSizeType mealSizeType) {
-        switch (mealSize) {
+    public void setMealSize(MealSizeType mealSizeType) {
+        switch (mealSizeType) {
             case BIG -> {
-                return MealSizeType.BIG;
+                mealSize = MealSizeType.BIG;
             }
             case ENORMOUS -> {
-                return MealSizeType.ENORMOUS;
+                mealSize = MealSizeType.ENORMOUS;
             }
             default -> {
-                return MealSizeType.REGULAR;
+                mealSize = MealSizeType.REGULAR;
             }
         }
 
     }
 
-    /** meal ordering basic ignore */
+
+
+
+
+
+    
+    /**
+     * meal ordering basic ignore
+     */
     private void orderCrisps() {
         System.out.println("pls chose crisps - ");
-    //    setChips();
+        //    setChips();
     }
 
     private void orderDrink() {
         System.out.println("pls chose drink - ");
-    //    setDrink();
+        //    setDrink();
     }
 
     private void chooseMealSize() {
         System.out.println("pls chose meal size - ");
-    //   setMealSize();
+        //   setMealSize();
     }
 }
