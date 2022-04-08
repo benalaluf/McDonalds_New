@@ -1,4 +1,4 @@
 package IndividualDishes;
 
-public interface Dish {
+public abstract class Dish {
 }

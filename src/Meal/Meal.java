@@ -1,16 +1,15 @@
 package Meal;
 
+import Meal.MealType.ChipsType;
+import Meal.MealType.DrinkType;
+import Meal.MealType.MealSizeType;
+
 interface Meal {
 
-    void orderType();
 
-    void orderMeal();
+    ChipsType setChips(ChipsType chipsType);
 
-    void addToTotalPrice();
+    DrinkType setDrink(DrinkType drinkType);
 
-    String setCrisps(String crisps);
-
-    String setDrink(String drink);
-
-    String setMealSize(String size);
+    MealSizeType setMealSize(MealSizeType sizeType);
 }

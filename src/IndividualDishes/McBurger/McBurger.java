@@ -2,7 +2,7 @@ package IndividualDishes.McBurger;
 
 import IndividualDishes.Dish;
 
-public class McBurger implements Dish {
+public class McBurger extends Dish {
 
     McBurgerType mcBurgerType;
 

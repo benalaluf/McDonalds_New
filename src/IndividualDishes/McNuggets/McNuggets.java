@@ -2,7 +2,7 @@ package IndividualDishes.McNuggets;
 
 import IndividualDishes.Dish;
 
-public class McNuggets implements Dish {
+public class McNuggets extends Dish {
 
     private final McNuggetsType mcNuggetsType;
     private int pieces;
