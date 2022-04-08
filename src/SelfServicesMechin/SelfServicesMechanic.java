@@ -4,8 +4,6 @@ import IndividualDishes.Dish;
 import Meal.MealBase;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
@@ -23,8 +21,13 @@ public class SelfServicesMechanic {
     public SelfServicesMechanic() {
     }
 
+
     public void order(MealBase meal) {
-        //TODO
+        setTotalPrice(meal.getPrice());
+        askClientName();
+        setOrderNumber();
+        setCurrentDateAndTime();
+        recipe();
     }
 
     public void order(Dish dish) {
@@ -32,13 +35,19 @@ public class SelfServicesMechanic {
         askClientName();
         setOrderNumber();
         setCurrentDateAndTime();
+        recipe();
 
+    }
+
+    public void recipe() {
         //TODO make GUI
         System.out.println("ORDER NUMBER - " + orderNumber);
         System.out.println("---------------------------------");
         System.out.println("client name - " + clientName);
         System.out.println("time of deal - " + currentDateAndTime);
-        System.out.println("THE TOTAL PRICE IS " + totalPrice);
+        System.out.println("THE TOTAL PRICE IS " + totalPrice +"$");
+        System.out.println("---------------------------------");
+
     }
 
     public void setOrderNumber() {

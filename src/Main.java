@@ -10,9 +10,12 @@ import SelfServicesMechin.SelfServicesMechanic;
 public class Main {
     public static void main(String[] args) {
         SelfServicesMechanic selfServicesMechanic = new SelfServicesMechanic();
-        Dish dish = new McNuggets(McNuggetsType.REGULAR,10); //TODO ask for input of these parameters
+        
+        //TODO ask for input of these parameters
+        Dish dish = new McNuggets(McNuggetsType.REGULAR,10);
         MealBase meal = new MealBase(dish, DrinkType.SPRITE, ChipsType.POTATO, MealSizeType.BIG);
 
         selfServicesMechanic.order(dish); //ordering dish
+        selfServicesMechanic.order(meal); //ordering meal
     }
 }
