@@ -1,5 +1,6 @@
 package SelfServicesMechin;
 
+import Desserts.Dessert;
 import IndividualDishes.Dish;
 import Meal.MealBase;
 
@@ -37,6 +38,14 @@ public class SelfServicesMechanic {
         setCurrentDateAndTime();
         recipe();
 
+    }
+
+    public void order(Dessert dessert){
+        setTotalPrice(dessert.getPrice());
+        askClientName();
+        setOrderNumber();
+        setCurrentDateAndTime();
+        recipe();
     }
 
     public void recipe() {
