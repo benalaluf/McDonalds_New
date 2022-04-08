@@ -4,7 +4,7 @@ import Desserts.Dessert;
 
 public class McFlurry extends Dessert {
 
-    private final McFlurryType mcFlurryType;
+    private McFlurryType mcFlurryType;
 
     private final double oreoPrice = 3.5;
     private final double mandmPrice= 4;
