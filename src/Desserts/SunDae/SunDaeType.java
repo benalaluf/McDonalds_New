@@ -1,5 +1,5 @@
 package Desserts.SunDae;
 
 public enum SunDaeType {
-    FUDGE, CARAMEL, WITH_PEANUTS
+    FUDGE, CARAMEL, FUDGE_WITH_PEANUTS, CARAMEL_WITH_PEANUTS
 }
