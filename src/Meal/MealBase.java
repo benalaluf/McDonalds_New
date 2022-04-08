@@ -1,118 +1,89 @@
 package Meal;
 
-import java.util.Objects;
+import Meal.MealType.ChipsType;
+import Meal.MealType.DrinkType;
+import Meal.MealType.MealSizeType;
+
 import java.util.Scanner;
 
 public abstract class MealBase implements Meal {
 
     protected Scanner scn = new Scanner(System.in);
 
-    private String drink;
-    private String crisps;
-    private String mealSize;
+    private DrinkType drink;
+    private ChipsType chips;
+    private MealSizeType mealSize;
 
-    public String mealName;
-    protected double price;
-    private double totalPriceMealSize = 0;
-    private double totalPrice = 0;
+//    protected double price;
+//    private double totalPriceMealSize = 0;
+//    private double totalPrice = 0;
 
     public MealBase() {
-        this.mealName = mealName;
     }
 
-    boolean isValid(String valid) {
-        return Objects.equals(valid, "invalid");
-    }
-
-    boolean isValid(int valid) {
-        return valid == -1;
-    }
-
-    private String getMealName() {
-        return mealName;
-    }
-
-    public String setDrink(String drink) {
+    /** set basic-meal things */
+    public DrinkType setDrink(DrinkType drinkType) {
         switch (drink) {
-            case "coke" -> {
-                totalPriceMealSize += 3;
-                return "coke";
+            case COLA -> {
+                return DrinkType.COLA;
             }
-            case "sprite" -> {
-                totalPriceMealSize += 3;
-                return "sprite";
+            case SPRITE -> {
+                return DrinkType.SPRITE;
             }
-            case "lean" -> {
-                totalPriceMealSize += 69;
-                return "lean";
+            case FANTA -> {
+                return DrinkType.FANTA;
             }
             default -> {
-                System.out.println("you entered invalid drink try coke/sprite/lean");
-                return "invalid";
+                return DrinkType.LEAN;
             }
         }
     }
 
-    public String setCrisps(String crisps) {
-        switch (crisps) {
-            case "french" -> {
-                totalPriceMealSize += 2;
-                return "French";
-            }
-            case "potato" -> {
-                totalPriceMealSize += 5;
-                return "Potato";
+    public ChipsType setChips(ChipsType chipsType) {
+        switch (chips) {
+            case POTATO -> {
+                return ChipsType.POTATO;
             }
             default -> {
-                System.out.println("you entered invalid crisps try french/potato");
-                return "invalid";
+                return ChipsType.FRENCH;
             }
         }
     }
 
-    public String setMealSize(String size) {
-        switch (size.charAt(0)) {
-            case 'r' -> {
-                return "regular";
+    public MealSizeType setMealSize(MealSizeType mealSizeType) {
+        switch (mealSize) {
+            case BIG -> {
+                return MealSizeType.BIG;
             }
-            case 'b' -> {
-                return "big";
-            }
-            case 'e' -> {
-                return "enormous";
+            case ENORMOUS -> {
+                return MealSizeType.ENORMOUS;
             }
             default -> {
-                System.out.println("you entered invalid meal size try regular/big/enormous");
-                return "invalid";
+                return MealSizeType.REGULAR;
             }
         }
 
     }
 
+    /** meal ordering basic */
     private void orderCrisps() {
-        do {
-            System.out.println("pls chose crisps - ");
-            crisps = setCrisps(scn.next());
-        } while (isValid(crisps));
+        System.out.println("pls chose crisps - ");
+        setCrisps(scn.next());
     }
 
     private void orderDrink() {
-        do {
-            System.out.println("pls chose drink - ");
-            drink = setDrink(scn.next());
-        } while (isValid(drink));
+        System.out.println("pls chose drink - ");
+        setDrink(scn.next());
     }
 
     private void chooseMealSize() {
-        do {
-            System.out.println("pls chose meal size - ");
-            mealSize = setMealSize(scn.next());
-        } while (isValid(mealSize));
+        System.out.println("pls chose meal size - ");
+        setMealSize(scn.next());
     }
 
+    //TODO its very bad need to change
     @Override
     public void orderMeal() {
-        System.out.println(getMealName());
         System.out.println("--------------------------");
         this.orderType();
         orderCrisps();
@@ -120,27 +91,27 @@ public abstract class MealBase implements Meal {
         chooseMealSize();
     }
 
-    private double setTotalPriceMealSize() {
-        return switch (mealSize) {
-            case "regular" -> 1 * totalPriceMealSize;
-            case "big" -> 1.5 * totalPriceMealSize;
-            case "enormous" -> 1.8 * totalPriceMealSize;
-            default -> -1 * totalPriceMealSize;
-        };
-    }
-
-    public void addToTotalPrice() {
-        totalPrice += price;
-    }
-
-    private double getTotalPrice() {
-        return totalPrice + setTotalPriceMealSize();
-    }
-
-    public void recipe() {
-        System.out.println("------------------------");
-        System.out.println("the total price is - $" + getTotalPrice());
-        System.out.println("------------------------");
-
-    }
+//    private double setTotalPriceMealSize() {
+//        return switch (mealSize) {
+//            case "regular" -> 1 * totalPriceMealSize;
+//            case "big" -> 1.5 * totalPriceMealSize;
+//            case "enormous" -> 1.8 * totalPriceMealSize;
+//            default -> -1 * totalPriceMealSize;
+//        };
+//    }
+//
+//    public void addToTotalPrice() {
+//        totalPrice += price;
+//    }
+//
+//    private double getTotalPrice() {
+//        return totalPrice + setTotalPriceMealSize();
+//    }
+//
+//    public void recipe() {
+//        System.out.println("------------------------");
+//        System.out.println("the total price is - $" + getTotalPrice());
+//        System.out.println("------------------------");
+//
+//    }
 }
